@@ -1,8 +1,13 @@
+mkdir -p .github/workflows
+
+cat > .github/workflows/deploy.yml <<'EOF'
 name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: ["main"]
+    branches:
+      - main
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -10,36 +15,60 @@ permissions:
   id-token: write
 
 concurrency:
-  group: "pages"
+  group: github-pages
   cancel-in-progress: true
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Setup Node
-        uses: actions/setup-node@v4
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
         with:
-          node-version: 20
+          node-version: 22
+          cache: npm
+
+      - name: Verify project files
+        run: |
+          echo "Current directory:"
+          pwd
+          echo "Repository contents:"
+          ls -la
+          echo "Checking package.json:"
+          test -f package.json
+          echo "package.json exists"
+
       - name: Install dependencies
-        run: npm install
-      - name: Build
+        run: npm ci
+
+      - name: Build Vite application
         run: npm run build
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+
+      - name: Verify build output
+        run: |
+          test -d dist
+          test -f dist/index.html
+          echo "dist/index.html exists"
+          ls -la dist
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v5
         with:
           path: ./dist
 
   deploy:
+    needs: build
+    runs-on: ubuntu-latest
+
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    needs: build
-    runs-on: ubuntu-latest
-    name: Deploy
+
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
