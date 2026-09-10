@@ -51,7 +51,7 @@ export const content = {
       eyebrow:  'Thodagiya Naatkal',
       title:    'From tuition friend to forever friend..',
       body:     'Yarune theriyaama start aana namma first chapter, innaiku enga vandhu nikkuthu paaru, Actually tuition time memories ah nenaichi paakkumbodhu eppovume oru thani feel dhaan.. avlo pleasant ah irukkum...',
-      image:    '/assets/memory-1.jpg',   // ← Add your photo here (or leave blank for gradient)
+      image:    '/riruka.github.io/assets/memory-1.jpg',   // ← Add your photo here (or leave blank for gradient)
       gradient: 'radial-gradient(ellipse 80% 60% at 30% 50%, #1a2830 0%, #0a1015 100%)',
       year:     '2020',
       align:    'left',                   // 'left' or 'right'
@@ -61,7 +61,7 @@ export const content = {
       eyebrow:  'Nagarum Naatkal',
       title:    'From forever friend to best friend..',
       body:     '350m pakura distance la irundhu ipo 350km call la pesura avaluku poituchu.. Namba characters maariduchu.. physical appearance maariduchu.. aana namma frdship mattum innum marave illa..',
-      image:    '/assets/memory-2.jpg',   // ← Add your photo here
+      image:    '/riruka.github.io/assets/memory-2.jpg',   // ← Add your photo here
       gradient: 'radial-gradient(ellipse 80% 60% at 70% 40%, #2e1810 0%, #0d0804 100%)',
       year:     '2022',
       align:    'right',
@@ -77,10 +77,10 @@ export const content = {
   gallerySubtitle: 'Kaalathil uraindha tharunangal',
 
   photos: [
-    { src: '/assets/photo-1.jpg', caption: 'Random',   rotation: -3,   gradient: 'linear-gradient(160deg, #1a1208 0%, #2e2010 100%)' },
-    { src: '/assets/photo-2.jpg', caption: 'Your laugh',            rotation:  2,   gradient: 'linear-gradient(160deg, #0a1015 0%, #1a2530 100%)' },
-    { src: '/assets/photo-3.jpg', caption: 'This moment',           rotation: -1.5, gradient: 'linear-gradient(160deg, #10150a 0%, #202510 100%)' },
-    { src: '/assets/photo-4.jpg', caption: 'Always',                rotation:  3,   gradient: 'linear-gradient(160deg, #15100a 0%, #2a2015 100%)' },
+    { src: '/riruka.github.io/assets/photo-1.jpg', caption: 'Random',   rotation: -3,   gradient: 'linear-gradient(160deg, #1a1208 0%, #2e2010 100%)' },
+    { src: '/riruka.github.io/assets/photo-2.jpg', caption: 'Your laugh',            rotation:  2,   gradient: 'linear-gradient(160deg, #0a1015 0%, #1a2530 100%)' },
+    { src: '/riruka.github.io/assets/photo-3.jpg', caption: 'This moment',           rotation: -1.5, gradient: 'linear-gradient(160deg, #10150a 0%, #202510 100%)' },
+    { src: '/riruka.github.io/assets/photo-4.jpg', caption: 'Always',                rotation:  3,   gradient: 'linear-gradient(160deg, #15100a 0%, #2a2015 100%)' },
   ],
 
 
